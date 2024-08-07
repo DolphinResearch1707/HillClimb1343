@@ -1,0 +1,16 @@
+EnforcedHillclimbing(State=a,goal=g,action=a)
+plan<-------(z)
+closed<----------------------(z1)
+current<------------z3
+h(current)<-------------------Heuristic(Current,Goal)
+while h(current)=/0
+closed<-------------------closed U  {Current,Goal}
+while h(Current)=/0
+closed<------------closed U {Current}
+plansegment<-----------NextBetter(Current,Closed,z)
+if Plansegment="Nix"
+Then return failure
+Else Plan<-------------------------append(Plan,plansegment)
+h(current)<------heuristic(current,goal)
+closed<----------HashInsert(Closed,Plansegment)
+Return plan
